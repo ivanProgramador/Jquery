@@ -21,17 +21,17 @@
 
 
 
-	<h1>Selecionando elementos parte 1</h1>
-	<div>div 1</div>
-	<div>div 2</div>
+	<h1  class="titulo">Selecionando elementos parte 1</h1>
+	<div class="div-1">div 1</div>
+	<div class="div-2" >div 2</div>
 
-	<ul>
+	<ul id="menu1" class="lista-1">
 		<li>Menu 1 - item 1</li>
 		<li>Menu 1 - item 2</li>
 		<li>Menu 1 - item 3</li>
 	</ul>
 
-	<ul>
+	<ul id="menu2" class="lista-2">
 		<li>Menu 2 - item 1</li>
 		<li>Menu 2 - item 2</li>
 		<li>Menu 2 - item 3</li>
@@ -46,6 +46,48 @@
 	</select><br>
 
 	<img src="carro.jpg">
+
+	<script type="text/javascript">
+		
+
+		/*selecionando elemento pela tag*/
+
+		console.log($('h1'));
+		console.log($('input'));
+		console.log($('img'));
+		console.log($('div'));
+		console.log($('ul'));
+
+		/*selecionando elemento pela classe*/
+
+		console.log($('.lista-1'));
+		console.log($('.lista-2'));
+		console.log($('.titulo'));
+		console.log($('.div-1'));
+		console.log($('.div-2'));
+		console.log($('ul'));
+
+
+
+		/*Selecionando  pelo id*/
+
+		console.log($('#menu1'));
+		console.log($('#menu2'));
+
+
+
+
+		/*ele faz como se fosse um vetor quando ele seleciona
+          o h1 e tem dois h1 na pagina vai ocupar 2 indices na seleção,
+          assim com o css ele consegue selecionar tags uniformes tambem
+          mesmo que varios elementos do mesmo tipo estejam na pagina todos eles são selecionados
+        */
+
+
+
+
+
+	</script>
 
 	
 

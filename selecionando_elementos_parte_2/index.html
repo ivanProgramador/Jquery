@@ -6,19 +6,27 @@
 </head>
 <body>
 
-   <input class="exemplo1" type="text" placeholder="input 1">
+   <input  type="text" placeholder="input 1">
    <input type="text" placeholder="input 2">
    <input type="text" placeholder="input 3">
 
-   <div class="exemplo1" >div 1</div>
+   <div >div 1</div>
    <div>div 2</div>
    <div>div 3</div>
 
-   <ul>
-   	 <li class="exemplo1" >opção 1</li>
-   	 <li>opção 2</li>
+   <ul  class="lista1" >
+   	 <li class="exemplo2" >opção 1</li>
+   	 <li class="exemplo2" >opção 2</li>
    	 <li>opção 3</li>
    </ul>
+
+   <ul class="lista2" >
+       <li class="exemplo2">opção 1</li>
+       <li class="exemplo2" >opção 2</li>
+       <li>opção 3</li>
+   </ul>
+
+   
 
 	
 	<script type="text/javascript">
@@ -35,8 +43,39 @@
         1 o elemento depois a classe que ele pertence
       */
 
-      console.log($("div.exemplo1"));
-      
+     // console.log($("div.exemplo1"));
+
+
+     /*
+       selecionando elementos de classe por classe especifica
+
+
+     */
+
+     // console.log($('ul.lista1 li.exemplo2'));
+
+     /*
+     seleção condicional por indice uma seleção cri uma array e o tamanho deste array depende da quantidade de elementos 
+     selecionados é possivel aspontar apar um elento especifico de forma condicional 
+
+     usando a sinataxe :first  op primeiro elemento sera selecionado usando a sintaxe :last o ultimo é selecionado
+     usando a sintaxe :even  somante elementos presentes nos indices pares são selecionados
+
+     e usando a sintaxe :odd sonmente os indices impares saõ selecionados
+
+     na pratica
+     */
+
+     console.log($('.lista1 .exemplo2:first'));
+     console.log($('.lista1 .exemplo2:last'));
+     console.log($('.lista1 .exemplo2:even'));
+     console.log($('.lista1 .exemplo2:odd'));
+
+
+
+
+    
+
 
 
 

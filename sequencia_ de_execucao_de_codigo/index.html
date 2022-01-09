@@ -5,6 +5,22 @@
 	<script type="text/javascript" src="jquery-3.3.1.js"></script>
 </head>
 <body>
+
+	<!--A sequencia de execução em js e gravitacional  de cima para baixo significa que para fazer referencia a um componente 
+        é necessario que este seja criad antes que a função para afeta-lo, mas em JS puro existe o atibuto 
+
+        onload=""  que é aplicado a algum elemento e quando estetermina de ser caregado no dom a função que esta dentro do onload
+                   é executada, noemalmente ela é aplicada no body 
+
+        window.onload = function(){};  é a mesm coisa so que ela já aponta uma função especifica.
+
+        Em JQUERY  a função usada é $(document).ready(function(){});  que executa uma função depois que elemento e carregado no dom 
+        a diferença e que dessa forma assim que elemento carrega ele ja traz todos os recursos da biblioteca para serem acionados
+
+         
+
+
+	-->
 	
      <div id="teste">
 

@@ -3,6 +3,7 @@
 <head>
 	<title>Jquery</title>
 	<script type="text/javascript" src="jquery-3.3.1.js"></script>
+	<script type="text/javascript" src="script.js"></script>
 </head>
 <body>
 
@@ -10,38 +11,86 @@
         é necessario que este seja criad antes que a função para afeta-lo, mas em JS puro existe o atibuto 
 
         onload=""  que é aplicado a algum elemento e quando estetermina de ser caregado no dom a função que esta dentro do onload
-                   é executada, noemalmente ela é aplicada no body 
+                   é executada, normalmente ela é aplicada no body 
 
         window.onload = function(){};  é a mesm coisa so que ela já aponta uma função especifica.
 
         Em JQUERY  a função usada é $(document).ready(function(){});  que executa uma função depois que elemento e carregado no dom 
-        a diferença e que dessa forma assim que elemento carrega ele ja traz todos os recursos da biblioteca para serem acionados
+        a diferença e que dessa forma assim que elemento carrega ele ja traz todos os recursos da biblioteca para serem acionados e
+        embora o codigo js esteja sendoexecutado entes da existencia do elemento de cima para baixo ele espera a pagina carregar primeiro
+        para depois executar de fato a a sua função.         
 
-         
+        ou de forma mais resumida poedemos apenas passar a fuunção como parametro que automaticamente ela espera o dom carregar com o elemento
+        para depois executar
+
+
+
+
+
+        o codigo abaixo esta chmando um elemento que so passa a existir na linha seguinte 
+
+
+        <script type="text/javascript">
+
+		function teste(){
+
+			console.log($('#teste'));
+		}
+
+
+		console.log($('#teste'));  // neste caso nao aparece nada porque o elemento ainda não existe
+		
+
+				</script>
+
+
+
+
+
+				
+			     <div id="teste">
+
+			     	teste
+			     	
+
+
+			     </div>
 
 
 	-->
-	
-     <div id="teste">
-
-     	teste
-     	
-
-
-     </div>
-
-	
-
-
 
 
 
 	<script type="text/javascript">
 
-		console.log($('#teste'));
+	
+		console.log($('#teste'));  
+
+
+
+
 		
 
 	</script>
+
+
+	<div id="teste">
+
+     	teste
+			     	
+
+    </div>
+
+
+
+
+	
+
+
+
+
+
+	
 	
 
 	

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Jquery</title>
+	<script type="text/javascript" src="jquery-3.3.1.js"></script>
+
+   <script type="text/javascript">
+
+
+    
+    $(document).ready(()=>{
+     
+
+    // a amanipulação de atributos dos elementos em JQuery funciona assim 
+    // primeiro eu seleciono o elemento attr significa atributo 
+    // então no caso eu selecionei o elemento imagem  e quero manipular o atributo border
+    // o valor original dele e 5 a função attr recebe 2 parametros no primeiro o 
+    //nome do atributo e no segundo o valor que ele vai receber
+
+    $('img').attr('border','10');
+
+    //manipulando a imagem nesse caso ele troca o arquivo ao qual o src faz referencia 
+
+     $('img').attr('src','esfera_2.png');
+
+     //manipúlando o css de uma div
+
+     $('div').attr('style','background-color:red; width: 300px; height: 300px;');
+
+     // manipulando o texto de um input
+
+     $('input').attr('value','Eu continuo sendo um input');
+
+     //transformando o tipo de input de text para password
+
+     $('input').attr('type','password');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      
+    });
+
+  </script>
+
+</head>
+<body>
+
+
+  <img src="esfera_1.png" border="5">
+
+  <div style="background-color:blue; width: 100px; height: 100px;" >
+    
+  </div>
+
+  <input type="text" value="ola eu sou um input ">
+
+
+
+
+
+	
+
+</body>
+
+
+   
+</html>

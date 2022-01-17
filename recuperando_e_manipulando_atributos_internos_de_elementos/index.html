@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Jquery</title>
+	<script type="text/javascript" src="jquery-3.3.1.js"></script>
+
+   <script type="text/javascript">
+
+
+    
+    $(document).ready(()=>{
+
+      /*
+
+      selecionando uma div ou qualquer outra tag da forma abaixo, ela vai retornar todo o seu
+      conteudo em formato de texto, o conteudo podem ser tanto tags quanto textos.
+
+      $('#div1').html()
+
+
+      */
+     
+       console.log('conteudo div1',$('#div1').html());
+       console.log('conteudo div2',$('#div2').html());
+
+       /*
+       Editando o conteudo das divs, nesse caso o novo conteudo e enviado pela mesma funçao 
+       e tambem dá pra enviar tags e estilos
+       */
+
+       $('#div1').html('<strong style="color:red;"  >novo conteudo</strong>');
+
+       /*
+        Mas caso preciso ignorar as tags html basta mudar de html para text
+       */
+
+       $('#div1').text('<strong style="color:red;" >novo conteudo</strong>');
+   
+
+
+        
+      
+    });
+
+  </script>
+
+</head>
+<body>
+
+
+  <div id="div1" style="border: solid 1px #000; width: 150px;  height: 150px;">
+
+    div 1
+    
+  </div>
+
+  <div id="div2" style="border: solid 1px #000; width: 150px;  height: 150px;">
+
+    div 2
+    
+  </div>
+
+
+
+
+
+	
+
+</body>
+
+
+   
+</html>

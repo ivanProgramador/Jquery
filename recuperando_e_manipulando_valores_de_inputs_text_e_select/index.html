@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Jquery</title>
+	<script type="text/javascript" src="jquery-3.3.1.js"></script>
+
+   <script type="text/javascript">
+
+   	/*
+     Os valores contidos em imputs, selects são recuperaveis e manipulaveis
+     atraves do JQuery iso resolve uma duvida que eu tinha a muito tempo a respeito 
+     de como pegar os valores de campos em js, como a interface reage como base em uma 
+     escolha feita pelo usuario a resposta neste momento e a diretiva .val()  
+
+     no cenario abaixo eu tenho um input onde o usuario bota o nome dele e escolhe 
+     qual foi o meio por onde ele nos achou e essas informações precisam ser capturadas
+     nesse caso primeiro seleciono o elemento pelo id
+
+     input
+     ------------------------------------
+
+     $('#nome').val(); -> então ele traz o valor do input
+     $('#nome').val('josé'); -> asim ele envia este valor de volta para preencher o input
+     
+     select
+     ---------------------------------
+
+     $('#origem').val(); -> ele retorna o numero da opção escolhida pelo usuario
+     $('#origem').val('4'); -> ele define qual a opção aparece pre-selecionada
+
+
+
+   	*/
+
+
+    
+    $(document).ready(()=>{
+
+    	 $('#nome').val();
+    	 $('#nome').val('josé');
+    	 $('#origem').val();
+    	 $('#origem').val('2');   
+      
+    });
+
+  </script>
+
+</head>
+<body>
+
+	 <p>Nome:</p>
+	 <input type="text" id="nome">
+	 <br>
+	 <p>Onde você nos encontrou ?</p>
+	 <select id="origem">
+
+	 	<option value="1" >Google      </option>
+	 	<option value="2" >Facebook    </option>
+	 	<option value="3" >Radio       </option>
+	 	<option value="4" >Outros meios</option>
+
+	 </select>
+
+
+
+
+
+  
+
+
+
+
+
+	
+
+</body>
+
+
+   
+</html>

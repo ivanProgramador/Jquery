@@ -6,48 +6,79 @@
 
    <script type="text/javascript">
 
-    /*Como saber que valor o usuario selecionou no radio button ?
-
-      $('.sexo') -> retorna os dois elementos que tem a classe sexo
-
-      agora para saber qual foi selecionado
-
-      $('.sexo:checked') -> retorna somente o elemento selecionado 
-
-      para pegar o valor do elemento selecionado 
-
-      $('.sexo:checked').val() -> alem de retornar o elemento selecionado ainda retona o valor dele
 
 
-    */
+    $(document).ready(()=>{
 
-    /*
-      Check boxes são diferenctes de radio buttons no cenario abaixo o usuario pode ter varios interesses
-      então nesse caso e necessario percorrer todos os check boxes e retornar os marcados e seus valores.
+      /*inserindo um item a mais na lista 1 'append' significa que estara abaixo dos outros elementos filhos*/
+
+      $('#lista1').append('<li>Item 4</li>');
 
 
-      usando a função, quando selecionamos de forma direta $('.interesse:checked') ele nos retorna um array
-      onde cada um desses indices e ocupado por um elemento que foi selecionado esse indice no caso e recebido
-      como o parametro 1 da função $.each('.interesse:checked') , no segundo parametro ela tem uma arrow function que automaticamente recebe 2 parametros que eu apelidei de indice parametro 1 e valor que eo parametro 2 assim que o loop começa ela preenche a arrow function com indice eo valor.
+      /*inserindo um item a amais na lista questãoe fique acima dos itens filhos ja existentes é usada a função 'prepend'*/
 
-      a cada loop´ela vem com um elemento html completo e consequentemente ele vem tamebm com seus atributos
-      então no caso abaixo eu uso o console.log() para retornar o indice eo atributo value do elemento.
+       $('#lista1').prepend('<li>Item 0</li>');
 
-      $.each($('.interesse:checked'),(indice, valor)=>{
+       /*mesmo que não seja uma lista se o elemento tem nos filhos funciona do mesmo jeito no codigo abaixo vou inserir uma nova div 
+         na lista 2
+        */
+
+        $('#lista2').append('<div>Item 4</div>');
+
+        /*inserindo uma div acima das divs filhas da lista 2*/
+
+        $('#lista2').prepend('<div>item 0<div>');
+
+
+        /*inserindo itens fora dos elementos lista 1  e lista 2 mesmo assim ainda posso controlar se ele fica acima ou abaixo do elemento  em questão*/
+
+        /*colocando antes da lista 2*/
+
+        $('#lista2').before('<p>Eu estou antes da lista dois e fora dela</p>');
+
+        /*colocando depois da lista 2*/
+
+        $('#lista2').after('<p>Eu estou depois da lista dois e fora dela</p>');
+
+        /*colocando elementos abaixo do hr*/
+
+        $('#linha').after('<p>Abaixo da linha</p>');
+
+        /*substituindo todos os elmentos de uma lista por um so*/
+
+       /* 
+
+         $('#lista1').html('<p>Eu substitui todos os elementos ! </p>');
+
+
+        */
+
+
+        /*removendo elementos da pagina os elementos que são removidos podem ser selecionados por classe ou id no caso abaixo vou usar uma classe para remover 
+        itens especificos com isso todos os elementos que pertencem a essa classe vão ser removidos 
+
+        */
+
+        $('.item2').remove();
+
+
+
+
         
-      console.log(indice,valor.value)
-
-      }); 
 
 
 
-      
 
 
-    */
 
-    
 
+
+
+
+
+    })
+
+   
 
 
 
@@ -56,40 +87,23 @@
 </head>
 <body>
 
-	 <p>Nome:</p>
-	 <input type="text" id="nome">
-	 <br>
-	 <p>Onde você nos encontrou ?</p>
+  <ul id="lista1">
+     <li>item 1</li>
+     <li class="item2">item 2</li>
+     <li>item 3</li>
+  </ul>
 
-	 <select id="origem">
-	 	<option value="1" >Google      </option>
-	 	<option value="2" >Facebook    </option>
-	 	<option value="3" >Radio       </option>
-	 	<option value="4" >Outros meios</option>
-	 </select>
-     <br>
+  <div id="lista2">
 
-     <p>Sexo:</p>
-     <!--inputs precisam ter a mesma classe edevem tero o mesmo nome para o navegador saber que fazem parte do mesmo grupo assim quando um esta marcado o outro não está agora se não tiver os dois no mesmo grupo
-         os dois odem ser marcados ao mesmo tempo
-      -->
-     <input type="radio" name="sexo" class="sexo" value="f">feminino<br>
-     <input type="radio" name="sexo" class="sexo" value="m">masculino
-     <br>
+    <div>Item 1</div>
+    <div class="item2" >Item 2</div>
+    <div>Item 3</div>
 
-     <p>interesses</p>
-     <input type="checkbox" name="interesse" class="interesse" value="php">PHP<br>
-     <input type="checkbox" name="interesse" class="interesse" value="js" >Javascript<br>
-     <input type="checkbox" name="interesse" class="interesse" value="angular">Angular<br>
-     <input type="checkbox" name="interesse" class="interesse" value="nodejs" >NodeJs<br>
-    
+  </div>
 
+  <hr id="linha">
 
-
-
-
-
-
+	 
 
 
 

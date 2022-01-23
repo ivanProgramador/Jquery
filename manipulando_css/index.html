@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Jquery</title>
+	<script type="text/javascript" src="jquery-3.3.1.js"></script>
+
+  <style type="text/css">
+
+     /*classe que sera adicionada*/
+     .campo{
+        
+          border: none;
+          padding: 10px;
+     }   
+
+     .padrão{
+           background-color: #ddd;
+
+     }
+
+     .erro{
+            background-color: red;
+     }
+
+
+  </style>
+
+  <script type="text/javascript">
+     
+   $(document).ready(()=>{ 	
+
+      /*para manipular o css de um elemento é utilizada a função css()
+        que recebe 2 parametros o primeiro e o  atributo css o segundo 
+        ea configuração
+       */
+   $('#topo').css('background-color','#155661');
+
+      /*afetando mais caracteristicas css*/
+   $('#topo').css('background-color','#155661').css('margin','0px').css('padding','10px 20px 10px 20px')
+
+      /*Usando objeto literal para manipular css */
+
+   $('#topo').css(
+        {'background-color':'#155661',
+         'margin':'0px',
+         'padding':'10px 20px 10px 20px'
+   });
+
+   $('body').css('margin','0px');
+
+   $('h1').css({'color':'#fff','margin':'0px'})
+
+   /*adicionando classes a um elemento html
+     criei a classe campo la em cima na tag style
+   */
+
+   $('input').addClass('campo');
+   $('textarea').addClass('campo');
+
+   /*adicionando 2 classes ao mesmo tempo no caso os inputs recebem a classe 
+     campo e a classe padrão, o textarea recebe a classe campo e a classe erro
+    */
+
+   $('input').addClass('campo padrão');
+   $('textarea').addClass('campo erro');
+    
+   /*
+    função para testar se um elemento possui uma classe especifica,
+    na verdade essa função serve para testes para ver se tem alguma classe
+    afetando o estilo do elemento o retorno e true se hou ver a classe 
+    e false se não houver. 
+   */
+
+   $('input').hasClass('padrao'); // aqui eu pergunto se o elemento input te a classe padrão
+   $('textarea').hasClass('padrao');
+
+   /*
+    usando um teste logico 
+    no caso abaixo se o textarea tiver a classe erro ele mostra um alert
+    avisando que exite um campo com erro
+   */
+
+   if($('textarea').hasClass('erro')){
+
+    alert('Temos um campo com erro')
+    } 
+
+    /*
+    removendo uma classe aqui eu removi a classe erro do textarea
+
+    */
+
+    $('textarea').removeClass('erro');
+
+    
+
+
+
+
+
+
+  
+  
+
+    })  
+
+  </script>
+
+</head>
+<body>
+
+
+  <div id="topo">
+      <h1>Barra de navegação da aplicação</h1>
+    </div>
+
+    <div>
+      <h3>Contato</h3>
+      <hr />
+
+      <p>Nome:</p>
+      <input type="text" />
+      <br />
+
+      <p>Email:</p>
+      <input type="text" />
+      <br />
+
+      <p>Mensagem:</p>
+      <textarea></textarea>
+      <br />
+
+      <button type="button">Enviar</button>
+    </div>
+
+	
+
+</body>  
+</html>

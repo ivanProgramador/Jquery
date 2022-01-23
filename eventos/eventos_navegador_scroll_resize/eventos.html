@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+	<head>
+		<meta charset="UTF-8">
+		<title>jQuery</title>
+
+		<style>
+			
+			
+		</style>
+
+		<script src="jquery-3.3.1.js"></script>
+
+
+		<script>
+
+			 $(document).ready(()=>{
+
+			 	/*atribuindo uma frase a um span para avisar que apagina carregou
+                  esse evento usa o carregamento da pagina como requisito pra executar
+                  atribundo o texto dentro do span
+			 	*/
+
+			 	$('#onload').html('Página carregada')
+
+			 	/*
+			 	 o objeto window representa toda a janela esse objeto tem
+			 	 o metodo scrool que recebe uma arrow function nesse caso
+			 	 ela sera usada para atribuir um texto na parte interna do span
+			 	 quando o scroll for acionado. Não adianta esta so em scroll tem que rolar a pagina para a ação acontecer 
+
+			 	*/
+
+			 	$(window).scroll(()=>{
+			 		$('#scroll').html('scroll acionado');
+			 	})
+
+			 	/*
+
+			 	usando o tamanho da tela para acionar um evento
+			 	no codigo abaixo alem de acressentar um texto dentro do 
+			 	apan ainda coloco um background vermelho
+
+			 	*/
+
+			 	$(window).resize(()=>{
+			 		$('#resize').html('pagina redimencionada').css('background-color','red')
+			 	})
+
+			
+
+
+			 /*
+			 capturando evento de scroll onde o elemento chama o evento pra si mesmo
+
+			 */
+
+			 $('#div1').scroll(function(){
+
+			 	// O this significa que o evento aponta pro elemento em questão
+			 	// parecido com OO SE USAR ARROW FUNCTION NAO DA PRA USAR O THIS
+			 	// TEM QUE SER O ID MESMO
+			 	
+			 	$(this).css('background-color','blue')
+			 })
+
+		  })
+
+		</script>
+
+
+	</head>
+
+
+
+
+	<body>
+		
+		<div id="topo">
+			<h1>Eventos</h1>
+		</div>
+
+		<div>
+			<h3>Browser</h3>
+			<span>Onload: </span><span id="onload">?</span><br/>
+			<span>Scroll: </span><span id="scroll" >?</span><br />
+			<span>Window: </span><span id="resize">?</span>
+
+
+			<div id="div1" style="height: 100px; width: 100px; border:solid 1px; overflow-y: scroll;" >
+				<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+				
+			</div>
+
+			<hr />
+
+			<h3>Mouse</h3>
+			<button type="button">Clique aqui</button>
+			<button type="button">Clique aqui 2x</button>
+			<div style="background-color: red; width: 80px; height: 50px; margin-top: 10px; margin-bottom: 10px"></div>
+			<span>Resultado do evento sobre a div</span>
+			<hr />
+
+			<h3>Teclado</h3>
+			<span>Nome:</span>
+			<input type="text" />
+			<span>Resultado do evento sobre o input</span>
+			<hr />
+
+			<h3>Formulário</h3>
+			<form>
+				<span>Nome:</span>
+				<input type="text" />
+
+				<span>E-mail:</span>
+				<input type="text" />
+
+				<span>Motivo do contato:</span>
+				<select>
+					<option value="">-- Selecione --</option>
+					<option value="duvida">Dúvida</option>
+					<option value="sugestao">Sugestão</option>
+				</select>
+				
+				<button type="button">Enviar</button>
+			</form>
+		</div>
+	</body>
+
+</html>

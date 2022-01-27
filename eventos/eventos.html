@@ -64,6 +64,66 @@
 			 	$(this).css('background-color','blue')
 			 })
 
+
+			 /*Eventos de mouse 
+
+			 O evento de click() é composto por 2 eventos que são mouseup() e mousedown(),
+			 o codigo abaixo usa o evento mousedown como parametro para mudar a cor da div2
+			 nesse caso ele captura a pressão sobre o botão do mouse.e se houver pressão ele
+			 muda a cor da div2
+			 */
+
+
+			 $('#btn1').mousedown(()=>{
+
+			 	$('#div2').css('background-color','green')
+			 })
+             
+             /*O evento mouseup() captura a liberação da tecla do mouse o momento em que
+              o usuario para de pressiona-la nesse caso a div2 fica azul ou podemos usar 
+              o veneto click que não e a mesma coisa mas faz o mesmo efeito
+             */
+
+
+			  $('#btn1').mouseup(()=>{
+
+			 	$('#div2').css('background-color','blue')
+			 })
+
+
+			 /*Clique duplo nesse caso ele captura um clique duplo 
+               e se houver clique duplo o veneto é musar a cor da div para amarelo
+			 */
+
+			  $('#btn2').dblclick(()=>{
+
+			 	$('#div2').css('background-color','yellow')
+			 })
+
+
+			/* Capturando o movimento do mouse nesse caso todo o movimento feito
+			  pelo mouse dentro da div2 sera enviado a variavel no caso vou capturar 
+			  as coordenadas x e y do movimento do mouse.
+
+			  e aplicar o avlor dentro de um span com id  #resultadodiv 
+
+			*/
+
+			$('#div2').mousemove((e)=>{
+
+				
+
+				$('#resultadodiv').html(' X: '+e.offsetX+'/ Y: '+e.offsetY)
+			})
+
+
+
+
+
+
+
+
+
 		  })
 
 		</script>
@@ -94,12 +154,22 @@
 
 			<hr />
 
+
+
+
+
 			<h3>Mouse</h3>
-			<button type="button">Clique aqui</button>
-			<button type="button">Clique aqui 2x</button>
-			<div style="background-color: red; width: 80px; height: 50px; margin-top: 10px; margin-bottom: 10px"></div>
-			<span>Resultado do evento sobre a div</span>
+			<button id="btn1" type="button">Clique aqui</button>
+			<button id="btn2" type="button">Clique aqui 2x</button>
+			<div id="div2" style="background-color: red; width: 80px; height: 50px; margin-top: 10px; margin-bottom: 10px"></div>
+			<span>Resultado do evento sobre a div</span><span id="resultadodiv">Resultado do evento sobre a div:</span>
 			<hr />
+
+
+
+
+
+
 
 			<h3>Teclado</h3>
 			<span>Nome:</span>

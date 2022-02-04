@@ -5,6 +5,19 @@
 		<title>jQuery</title>
 
 		<style>
+
+			#divExterna{
+				background-color: #ccc;
+				width: 80px;
+				height: 80px;
+				padding: 70px;
+			}
+
+			#divInterna{
+				width: 80px;
+				height: 80px;
+				background-color: blue;
+			}
 			
 			
 		</style>
@@ -118,8 +131,80 @@
 
 
 
+			/* Evento de entrada do ponteiro do mouse sobre um determinado elemento 
+			   nesse caso se o mouse estiver em cima do elemento o texto do spam muda
+			   para entrou , o meso aco0ntece se a função mouseenter() for usada.
+
+			   	$('#divExterna').mouseover(()=>{
+
+				$('#resultadoDiv1').html('entrou')
+			    })
 
 
+
+				$('#divExterna').mouseenter(()=>{
+
+					$('#resultadoDiv1').html('entrou')
+				})
+				*/
+
+				/* evento que verifica se o mouse saiu de cima de determinado elemento 
+				   usa-se a função mouseout(), a função mouseleave() tem o mesmo efeito 
+
+				   $('#divExterna').mouseout(()=>{
+
+					$('#resultadoDiv1').html('saiu')
+				})
+
+
+				$('#divExterna').mouseleave(()=>{
+
+					$('#resultadoDiv1').html('saiu')
+				})
+
+
+       			*/
+
+
+       			/* Dividindo os eventos acima em conjunto*/
+
+       			/* mouseover / mouseout (eventos antigos)
+                    mouseenter / mouseleave (eventos novos)
+                    */
+       		
+
+       			 $('#divExterna').mouseleave(()=>{
+
+					$('#resultadoDiv1').html('saiu')
+				})
+
+
+       			$('#divExterna').mouseenter(()=>{
+
+				$('#resultadoDiv1').html('entrou')
+
+			    })
+
+			     $('#divInterna').mouseleave(()=>{
+
+					$('#resultadoDiv2').html('saiu')
+				})
+
+
+       			$('#divInterna').mouseenter(()=>{
+
+				$('#resultadoDiv2').html('entrou')
+				
+			    })
+
+
+			  
+
+
+
+
+
+       			
 
 
 
@@ -163,6 +248,19 @@
 			<button id="btn2" type="button">Clique aqui 2x</button>
 			<div id="div2" style="background-color: red; width: 80px; height: 50px; margin-top: 10px; margin-bottom: 10px"></div>
 			<span>Resultado do evento sobre a div</span><span id="resultadodiv">Resultado do evento sobre a div:</span>
+
+
+			<div id="divExterna">
+
+				<div id="divInterna"></div>
+
+				
+
+			</div>
+			<span>Div Externa: </span><span id="resultadoDiv1"></span>
+			<br>
+			<span>Div Interna:</span> <span id="resultadoDiv2"></span>
+
 			<hr />
 
 

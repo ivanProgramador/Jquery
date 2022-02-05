@@ -197,6 +197,87 @@
 				
 			    })
 
+               /*E vento de captura de teclas de um teclado
+                 nesse caso existem 2 eventos keyup() e keydown()
+                 que identificam quando o cliente aperta solta
+                 uma tecla, o codigo abaixo usa uma arrow function
+                 para receber o evento de liberação da tecla
+
+                 um evento de liberação gera um objeto literal
+                 que guarda os dados do evento e um desses atributos
+                 do objto literal gerado eo keyCode que corresponde ao
+                 codigo da tecla liberada, com isso crei uma condicional
+                 com base na tela enter que o codigo dela e 13
+                 se o cliente apos digitar teclar enter o valor
+                 digitado é enviado a o span e logo o campo onde ele digitou
+                 fica vazio, essa abordagem é usaddas em sistemas de chat
+                 onde para mandar uma mensagem tem que teclar enter.
+                */
+
+                /* $('#teclado').keyup((e)=>{
+
+               	if (e.keyCode == 13){
+
+               		let txt = $('#teclado').val()
+
+               		$('#resultadoTecla').html(txt)
+
+               		$('#teclado').val('')
+
+               	}*/
+
+               	/* O codigo abaixo limita as telas que serão aceitas
+               	 no  campo.no caso abaixo  os numeros que podem ser digitados
+               	 são 1234 e seus codigos são:
+
+               	 1 = 49 
+               	 2 = 50
+               	 3 = 51
+               	 4 = 52
+
+               	 no notebook que estou usanddo nesse momento os codigos são esses
+               	 então nesse caso o campo nao pode aceitar valores menores que 49 
+               	 ou maiores que 52.
+
+               	 no caso do codigo abaixo ele vai capturar os dados presentes no campo
+               	 apos o evento keyup e se forem caracteres diferentes e 1234 esses serão
+               	 eliminados.
+
+
+               	*/
+
+
+               	$('#teclado').keyup((e)=>{
+
+               		if (e.keyCode < 49 || e.keyCode > 52) {
+                         
+                        //pegando o valor da string enviada pra variavel e 
+               			let txt = $(e.target).val()
+
+               			//a  função slice trata ela como um vetor de caracteres
+               			// nesse caso ela pega o primero como referencia e elimina o ultimo
+
+               			txt = txt.slice(0,-1)
+
+               			$(e.target).val(txt)
+
+               		}
+
+               	})
+
+
+               	
+
+
+
+
+
+               	 
+
+
+
+               })
+
 
 			  
 
@@ -209,7 +290,7 @@
 
 
 
-		  })
+		 
 
 		</script>
 
@@ -271,9 +352,15 @@
 
 			<h3>Teclado</h3>
 			<span>Nome:</span>
-			<input type="text" />
-			<span>Resultado do evento sobre o input</span>
+			<input id="teclado" type="text" />
+			<span id="resultadoTecla">Resultado do evento sobre o input</span>
 			<hr />
+
+
+
+
+
+
 
 			<h3>Formulário</h3>
 			<form>

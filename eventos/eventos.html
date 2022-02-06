@@ -18,6 +18,10 @@
 				height: 80px;
 				background-color: blue;
 			}
+
+			.inputFocado{
+				background-color: red;
+			}
 			
 			
 		</style>
@@ -266,30 +270,109 @@
                	})
 
 
-               	
+               	/* Eventos de formulario contem 3 funções diferentes
+
+               	   focus()  -> caputura o foco sobre um elemento
+               	   blur()   -> capura a retirada do foco sobre esse elemento
+               	   change() -> captura a muança de seleção de um elemento para outro por exemplo redio buttons ,opçoes dde um select
+               	   submit() -> captura o envio de um formulario.
+
+               	*/
+
+               	// o codigo abaixo verifica se o elemnto selecionado recebeu o foco
+               	// se sim ele imprime no console uma mensagem avisando e alem disso
+               	//atribui a classe .inoputFocado ao elemento 
+
+               	$('#nome').focus((e)=>{
+
+               		console.log('Esse elemento HTML recebeu o foco(nome)');
+
+               		//e.target faz uma referencia direta ao elemento alvo(selecionado)
+               		//pelo Jquery que nesse caso eo input #nome funciona como um this
+               		// na orientação a objetos
+
+              		$(e.target).addClass('inputFocado')
+
+
+               	})
+
+               	// o mesmo acontece com o  campo email
+
+               	$('#email').focus((e)=>{
+
+               		console.log('Esse elemento HTML recebeu o foco(e-mail)');
+               		$(e.target).addClass('inputFocado')
+               		
+               	})
+
+
+               	/*Capturando a retirada de foco usando o blur()
+
+               	*/
+
+               	$('#nome').blur(()=>{
+
+               		console.log('Esse elemento HTML perdeu o foco(nome)')
+               	})
+
+               	// o mesmo acontece com o  campo email
+
+               	$('#email').blur(()=>{
+
+               		console.log('Esse elemento HTML perdeu o foco(e-mail)')
+               	})
+
+               	/*Capturando a mudança na opção selecionada no select usando o metodo
+               	 change() 
+
+               	*/
+
+               	$('#opcao').change((e)=>{
+
+               		// o codigo abaixo pega o valor da opção selecionada pelo usuario
+
+               		console.log($(e.target).val())
+               	})
+
+
+               	/* Evento de formulario submit() muitas vezes precisamos validar uma informação
+               	   antes de envia-la para o banco e dados então antes de realmaente submeter as informações
+               	   podemos capturar e validar o dados enviados por isso a função submit captura a execução
+               	   do submit e nos dá o poder de decisão sobre o envio.
+
+               	*/
+
+
+
+               	$('#form').submit((e)=>{
+
+               		//esse metodo evita o evento default de um elemento ocorra
+               		// tanto pode usar a tag do elemento quanto o id
+               		e.preventDefault()
+
+               		console.log('Formulário submetido')
 
 
 
 
+
+
+               	})
+
+
+               	/*Aplicando eventos sobre ddiversos elementos html no caso estou selecionando dois
+                  elementos ao mesmo tempo em um evento
+               	*/
+
+               		$('#nome,#email').focus((e)=>{
+
+               		console.log('Esse elemento HTML recebeu o foco(e-mail)');
+               		$(e.target).addClass('inputFocado')
+               		
+               	})
 
                	 
-
-
-
                })
-
-
-			  
-
-
-
-
-
-       			
-
-
-
-
 		 
 
 		</script>
@@ -363,21 +446,21 @@
 
 
 			<h3>Formulário</h3>
-			<form>
+			<form id="form">
 				<span>Nome:</span>
-				<input type="text" />
+				<input id="nome" type="text" />
 
 				<span>E-mail:</span>
-				<input type="text" />
+				<input id="email" type="text" />
 
 				<span>Motivo do contato:</span>
-				<select>
+				<select id="opcao">
 					<option value="">-- Selecione --</option>
 					<option value="duvida">Dúvida</option>
 					<option value="sugestao">Sugestão</option>
 				</select>
 				
-				<button type="button">Enviar</button>
+				<button type="submit">Enviar</button>
 			</form>
 		</div>
 	</body>

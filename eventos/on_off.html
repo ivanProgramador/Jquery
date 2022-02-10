@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>JQuery</title>
+
+	<style type="text/css">
+		
+		.desfocado{
+			background-color: white;
+		}
+
+
+		.focado{
+			background-color: green;
+		}
+
+	</style>
+
+	<script src="jquery-3.3.1.js"></script>
+    
+	<script type="text/javascript">
+         $(document).ready(()=>{
+
+         	/*nesse caso eu uso o evento on que recebe 2 parametros 
+              o primeiro recebe o evento eo segundo recebe o evento que eu desejo que aconteça depois que o primeiro evento acontecer usando assim o evento focus como parametro para o inicio do evento que eu quero.
+         	*/
+
+
+         	$('Body').on('focus','input',e =>{
+         		 $(e.target).removeClass('desfocado')
+         		 $(e.target).addClass('focado')
+         	})
+
+         	$('Body').on('blur','input',e =>{
+         		 $(e.target).removeClass('focado')
+         		 $(e.target).addClass('desfocado')
+         	})
+
+
+
+
+         	/* Adicionando um novo elemento ao body 
+         	  porem do jeito que esta: 
+
+         	  $('input').on('focus',e =>{
+         		 $(e.target).removeClass('desfocado')
+         		 $(e.target).addClass('focado')
+         	})
+
+         	$('input').on('blur',e =>{
+         		 $(e.target).removeClass('focado')
+         		 $(e.target).addClass('desfocado')
+         	})
+
+
+
+         	  ele não sera afetado , mesmo ele sendo um input 
+         	  porque os evenetos acima são feitos para elementos ja existentes 
+         	  e não adicionados posteriormente, a correção desse problema acontece usando o DOM para escala ate o elemento mais alto da hierarquia 
+         	  que no caso é o body e dizer que todos os elementos input que seja filhos dele vao se afetados pelos eventos acima  o codigo agora fica assim
+
+         	  $('Body').on('focus','input',e =>{
+         		 $(e.target).removeClass('desfocado')
+         		 $(e.target).addClass('focado')
+            	})
+
+         	 $('Body').on('blur','input',e =>{
+         		 $(e.target).removeClass('focado')
+         		 $(e.target).addClass('desfocado')
+         	 })
+
+         	 */
+
+         	$('Body').append('<br/><br/><input type="text" class="desfocado">')
+
+
+         	/*usando off() para desativar um evento 
+              primeiro seleciona o body(que e o pai)
+              depois o eneto off seleciona o evento blur no primeiro parametro
+              no segundo ele afeta o input
+
+         	*/
+
+         	$('Body').off('blur', 'input')
+
+
+
+
+
+
+
+
+         })
+
+       
+
+		
+	</script>
+</head>
+<body>
+
+	<input type="text" class="desfocado">
+
+
+
+
+</body>
+</html>

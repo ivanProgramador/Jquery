@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+	<head>
+		<meta charset="UTF-8">
+		<title>Animações</title>
+
+		<style>
+
+			#div1{
+				width: 80px;
+				height: 80px;
+				border: solid 1px #000;
+				background-color: #aaaa;
+			}
+			#div2{
+				width: 80px;
+				height: 80px;
+				border: solid 1px #000;
+				background-color: #aaaa;
+			}
+		
+		</style>
+
+		<script src="jquery-3.3.1.js"></script>
+		<script>
+		   $(document).ready(()=>{
+
+		   	/*A função animate recebe dois parametros o primeiro é um objeto literal que representa o elemento que vai ser afetado e sua proriedades
+		   	no caso acima temos uma div de width: 80px; e height: 80px; ambas as propridades serão alteradas neste caso para um valor de 160px, o segundo parametro eo tempo que recebe o valor de 2000 então essa animação vai acontecer em 2 segundos, lebrando que dentro do objeto literal recebido por essa função so podem ter atributos que recebem valores numericos.
+
+		   	E o segundo parametro pode ser um objeto litearl tambem e dá pra definir
+		   	nesse objeto qoue acontece a cada etapa da duração da animação
+		   	*/
+
+		   	$('#btn1').on('click',()=>{
+
+		   		$('div').animate(
+
+		   			/*Objeto literal de caractericas*/
+		   		{
+		   			'width':'160px',
+		   			'height':'160px',
+		   			'margin-left':'200px',
+		   			'margin-top':'200px',
+		   			'border-radius':'25px'
+		   		},
+                  /*Objeto literal de controle de tempo*/
+
+		   		{
+		   			duration: 3500,
+		   			start: ()=> { console.log('Animação iniciada')},
+		   			complete: ()=>{
+
+		   				$('#div2').animate(
+		   					/*nesse caso quando a animação da div 1 terminar a animação da div 2 começa*/
+		   				   {
+					   		'width':'160px',
+					   		'height':'160px',
+							'margin-left':'200px',
+		     	   			'margin-top':'200px',
+				   			'border-radius':'25px'
+		   		           }
+
+
+
+
+		   				)
+		   			}
+
+		   		}
+
+
+
+		   		 )
+
+
+		   	})
+		   	  
+
+
+        
+				
+		   })
+		</script>
+
+
+	</head>
+
+	<body>
+
+		<button id="btn1" >Iniciar animação</button>
+		<br>
+		<div id="div1" >
+			
+		</div>
+
+		<div id="div2" >
+			
+		</div>
+		
+			
+	</body>
+
+</html>
